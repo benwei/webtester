@@ -1,6 +1,8 @@
 // @file web-tester.js
 // 
 
+config = require('./config.js');
+
 var countConnSuccess = 0;
 var countConnFailure = 0;
 var startTime = 0;
@@ -26,12 +28,7 @@ function chunkHandling(chunk) {
 
 // fetch data every 2 seconds.
 function tester() {
-	conn = http.get({
-		host: 'yoursite.yoursite',
-		path: '/testuri',
-		method: 'GET'
-		}, responseHandling);
-
+	conn = http.get(config.hostForGet(), responseHandling);
 	conn.on('error', raiseConnectError);
 }
 
