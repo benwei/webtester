@@ -1,21 +1,14 @@
 # Web Tester
+  Using the http to implement the test web tool.
 
- It is a small tool depends on node.js to test web site api.
+# Running Guide
+  - first steps, please run npm to install lib dependencies.
+     npm install -d 
 
-## Features
+  - run the application
+     node app.js
 
-- webtester sample implemented by http
-   - :webtest-by-http/apps.js
-
--  First try to leverage express web development framework.
-   - :helloweb -- hello web sample using helloweb
-
-
-### Line Endings
-
-**CRLF** and **CR** are converted to **LF** before parsing.
-
-## License 
+# License
 
 (The MIT License)
 

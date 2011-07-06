@@ -1,7 +1,0 @@
-
-1. first steps, please run npm to install lib dependencies.
-   npm install -d 
-
-2. run the application
-   node app.js
-
