@@ -3,10 +3,13 @@
 
 # Running Guide
   - first steps, please run npm to install lib dependencies.
-     npm install -d 
+     $ npm install -d 
 
   - run the application
-     node app.js
+     $ node app.js
+
+  - client side testing
+     $ curl localhost:8000
 
 # License
 
