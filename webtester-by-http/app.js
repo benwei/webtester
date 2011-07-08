@@ -2,16 +2,24 @@
 // 
 
 config = require('./config.js');
-
+EscapedTimeOfGet = 'Retrieve Page Escaped Time';
 var countConnSuccess = 0;
 var countConnFailure = 0;
 var startTime = 0;
 
 var http = require('http');
+var timeoutId = null;
 
 function raiseConnectError(e) {
-	console.log("Got Error: " + e.message);
 	countConnFailure++;
+	if (err.code == ECONNREFUSED) {
+		console.log("Error: " + err.message + " recovery state.");
+		clearInterval(timeoutId);
+		timeoutId = setInterval(tester, interval);
+	} else {
+		console.log("Error: " + e.message);
+	}
+	console.timeEnd(EscapedTimeOfGet); 
 }
 
 function responseHandling(res) {
@@ -24,18 +32,22 @@ var i = 0;
 function chunkHandling(chunk) {
 	console.log("chunk" + i + ":" + chunk.length + " bytes received");
 	i++;
+	console.timeEnd(EscapedTimeOfGet); 
 }
 
 // fetch data every 2 seconds.
 function tester() {
 	conn = http.get(config.hostForGet(), responseHandling);
+	console.time(EscapedTimeOfGet); 
 	conn.on('error', raiseConnectError);
 }
+
 
 //-------------------------------------------------------------------------
 // Tester run every 2 seconds
 //-------------------------------------------------------------------------
-setInterval(tester, 2000);
+var interval = config.get("CheckInterval");
+timeoutId = setInterval(tester, interval);
 
 //-------------------------------------------------------------------------
 // Server side for statistics
@@ -62,12 +74,25 @@ function statisticsInterval(res) {
 	}
 }
 
+serverCheckInterval = config.get("ServerCheckInterval");
+serverPort = config.get("ServerPort");
+
 function handleRequest(req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
 	setInterval(function() {
-	statisticsInterval(res)
-	}, 1000);
+		statisticsInterval(res)
+	}, serverCheckInterval);
 }
 
 var s = http.createServer(handleRequest);
-s.listen(8000);
+console.log(new Date() + " Server started at :" + serverPort);
+s.listen(serverPort);
+
+// Global process exception handling
+process.addListener('uncaughtException', function(err) {
+	if (err.code == ECONNREFUSED) {
+		console.log(err.message + " recovery state.");
+		timeoutId = setInterval(tester, interval);
+	}
+});
+
