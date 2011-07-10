@@ -1,6 +1,8 @@
 # Compiled source #
 ###################
-*WF1.js
+node_modules
+*_ignore.*
+*_ignore
 *.com
 *.class
 *.dll
