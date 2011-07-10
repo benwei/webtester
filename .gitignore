@@ -1,13 +1,36 @@
-.DS_Store
-lib-cov
-*.seed
+# Compiled source #
+###################
+*WF1.js
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
 *.log
-*.csv
-*.dat
-*.out
-*.pid
-*.swp
-*.swo
-benchmarks/graphs
-testing.js
-node_modules/
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
