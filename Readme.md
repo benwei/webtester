@@ -5,10 +5,10 @@
 ## Features
 
 - webtester sample implemented by http
-   - :webtest-by-http/apps.js
+   - webtest-by-http/apps.js
 
 -  First try to leverage express web development framework.
-   - :helloweb -- hello web sample using express
+   - helloweb -- hello web sample using express
 
 
 ### Line Endings

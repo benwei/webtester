@@ -1,23 +1,38 @@
+# Introduction
+
+  This is a PoC for web testing by polling the page within a specific interval.
+  And you can dump statics from ServerPort with curl.
+
 # First step
   - For running app.js, please modify the host info from config.js
 
 ## configurations at config.js
 
-   /// CheckInterval is used to hit host every (N) micro seconds
+   - CheckInterval is used to hit host every (N) micro seconds
+
    globalKeyArray["CheckInterval"] = 3000;
 
-   /// ServerCheckInterval is used to dump statistics of tester every (N) micro seconds.
+   - ServerCheckInterval is used to dump statistics of tester every (N) micro seconds.
+
    globalKeyArray["ServerCheckInterval"] = 1000;
 
-   /// Fill you testing host and uri path here
-   host: 'yoursite.yoursite',
+   - Fill you testing host and uri path here
+
+   host: 'yoursite.yoursite', <br\n>
    path: '/testuri',
+
+
+   - ServerPort is used for client connect to view statistics of webtester
+
+   globalKeyArray["ServerPort"] = 8000;
 
 # View Statistics
   - Use the following to view the statistics of connections.
-    curl localhost:8000
+
+    $ curl localhost:8000
 
 # Notes
+
   - get a page from host:url and provide a web connection to show count for connections of success and failure.
 
 # License
