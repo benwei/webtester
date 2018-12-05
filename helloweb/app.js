@@ -1,7 +1,8 @@
 
 // sample code from express web site
-express = require('express');
-var app = express.createServer();
+// fix security alert, update to express 3.11.0
+var express = require("express");
+var app = express();
 
 app.get('/', function(req, res) {
 	res.send('Hello world!\n');
