@@ -3,13 +3,34 @@
 
 # Running Guide
   - first steps, please run npm to install lib dependencies.
-     $ npm install -d 
+     $ npm install -d
 
   - run the application
      $ node app.js
 
   - client side testing
      $ curl localhost:8000
+## use npm start and test
+### run start
+
+```sh
+$ node app.js
+ben@c3:/ci/github/webtester/helloweb$ npm run start
+
+> helloweb@0.0.1 start
+> node app.js
+```
+
+### run test
+
+```sh
+$ npm run test
+
+> helloweb@0.0.1 test /ci/github/webtester/helloweb
+> curl http://localhost:8000
+
+Hello world!
+```
 
 # License
 

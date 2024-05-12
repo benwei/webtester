@@ -1,9 +1,16 @@
 {
     "name": "helloweb",
     "version": "0.0.1",
+    "scripts": {
+	"start": "node app.js",
+        "test": "curl http://localhost:8000"
+    },
+    "engines": {
+      "node": "18"
+    },
     "private": true,
     "dependencies": {
-        "express": "~>4.17.3",
+        "express": "^4.19.2",
         "qs": "~>6.6.1",
         "send": "^0.16.2",
         "serve-index": ">=1.6.3"
